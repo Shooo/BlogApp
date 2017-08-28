@@ -1,23 +1,26 @@
-<% include partials/header %>
+<% include ./partials/header %>
 
-<div class=" ui main text container segment">
-	<div class="ui huge header">New Blog</div>
-	<form class="ui form" action="/blogs" method="post">
-		<div class="field">
-			<label>Title</label>
-			<input type="text" name="blog[title]" placeholder="title">
+	<div class="container">
+		<h2>New Blog</h2>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form action="/blogs" method="POST">
+					<div class="form-group">
+						<label for="">Title</label>
+						<input type="text" class="form-control" name="blog[title]" placeholder="title">
+					</div>
+					<div class="form-group">
+						<label for="">Image</label>
+						<input type="text" class="form-control" name="blog[image]" placeholder="image">
+					</div>
+					<div class="form-group">
+						<label for="">Body</label>
+						<textarea class="form-control" name="blog[body]" placeholder="blog post" rows="16"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
 		</div>
-		<div class="field">
-			<label>Image</label>
-			<input type="text" name="blog[image]" placeholder="image">
-		</div>
-		<div class="field">
-			<label>Blog Content</label>
-			<textarea name="blog[body]"cols="40" rows="10"></textarea>
-		</div>
+	</div>	
 
-		<input class = "ui black basic button" type="submit">
-	</form>
-</div>
-
-<% include partials/footer %>
+<% include ./partials/footer %>

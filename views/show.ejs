@@ -1,23 +1,45 @@
-<% include partials/header %>
+<% include ./partials/header %>
 
-<div class=" ui main text container segment">
-	<div class="ui huge centered header"><%= blog.title %></div>
-	<div class="ui top attached">
-		<div class="item">
-			<img class="ui centered rounded image" src="<%=blog.image%>">
-			<div class="content">
-				<span><%= blog.created.toDateString(); %></span>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="form">
+
+				<div class="row">
+					<div class="col">
+						<h2 class="display-3"><%=blog.title %></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<img src="<%= blog.image %>" class="img-rounded center-block" width=700>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col">
+						<span><%= blog.created.toDateString()%></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p><%- blog.body %></p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-2">
+						<a href="/blogs/<%= blog._id %>/edit" class="btn btn-primary btn-block" role="button">Edit</a>
+					</div>
+					<div class="col-xs-2">
+						<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger btn-block">Delete</button>
+						</form>
+					</div>
+				</div>
 			</div>
-			<div class="description">
-				<!-- the dash "-" will run it as code -->
-				<p><%- blog.body %></p>
 			</div>
-			<a class="ui black basic button" href="/blogs/<%=blog._id%>/edit">Edit</a>
-			<form id="delete" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
-				<button class="ui red basic button">Delete</button>
-			</form>
 		</div>
-	</div>
-</div>
+	</div>	
 
-<% include partials/footer %>
+<% include ./partials/footer %>
